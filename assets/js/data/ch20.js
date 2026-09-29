@@ -1,0 +1,103 @@
+window.CIEN.chapters.push({
+n:20, titleEs:"Los pergaminos y el viento", titleEn:"The parchments and the wind", color:"#5A3A2E", icon:"wind", stage:"denouement",
+tagline:"Pilar Ternera dies; the friends and the sage leave; the lovers are left alone; a child is born with a pig's tail; and Aureliano reads the history of his family while a wind erases Macondo.",
+preQuestions:[
+ "As you read, list everything and everyone that disappears from Macondo in this chapter.",
+ "Aureliano and Amaranta Úrsula are 'los únicos seres felices'. How does the novel describe their happiness?",
+ "What does the sabio catalán's last advice mean: 'el pasado era mentira'?",
+ "How does reading the parchments change the meaning of the whole novel you have just read?"
+],
+summary:`
+<p>"Era el final" [@20:2]. Pilar Ternera is buried sitting in her rocking chair in the middle of the dance floor, and her mulattas scatter. The Catalan sage sells his books and returns to his Mediterranean village with three chests of manuscripts, declaring that the world will be ruined "el día en que los hombres viajen en primera clase y la literatura en el vagón de carga" [@20:2]. His letters slowly turn from recovery into "pastorales de desengaño". Caught between two nostalgias "enfrentadas como dos espejos", he urges his friends to leave and to remember "que el pasado era mentira, que la memoria no tenía caminos de regreso, que toda primavera antigua era irrecuperable" [@20:6]. Álvaro takes an endless train; Alfonso and Germán vanish; Gabriel wins a trip to Paris with the complete works of Rabelais, and must wave down the train [@20:7]. Gastón goes back to Brussels to fetch his plane.</p>
+<p>Alone, "los únicos seres felices, y los más felices sobre la tierra" [@20:7], the lovers give themselves to a destructive, playful, lyrical passion. They wreck the furniture, roll naked in the mud, and paint his body with lipstick [@20:8]. Gastón learns the plane went by mistake "a los Makondos" in Tanganyika [@20:9]. When he answers their confession with a calm, almost paternal letter and later asks only for his velocipede, Amaranta Úrsula feels humiliated [@20:10]. Poverty brings "un vínculo de solidaridad", and they are expecting a child when Pilar dies. They wonder about his origin. Terrified he might be her brother, Aureliano searches the parish records. The old priest says his name must come from a street, and Aureliano cries: "entonces usted tampoco cree… Que el coronel Aureliano Buendía hizo treinta y dos guerras civiles… Que el ejército… ametralló a tres mil trabajadores". The priest: "A mí me bastaría con estar seguro de que tú y yo existimos en este momento" [@20:18][@20:20]. An impersonal letter from Barcelona, surely announcing the sage's death, is left unread [@20:22][@20:23]. At night they hear the dead of the house, and learn "que las obsesiones dominantes prevalecen contra la muerte".</p>
+<p>The child is born: "un Buendía de los grandes… con los ojos abiertos y clarividentes de los Aurelianos", "el único en un siglo que había sido engendrado con amor" [@20:24]. "Se llamará Rodrigo." "No… Se llamará Aureliano y ganará treinta y dos guerras" [@20:25][@20:26]. Turning him over, they see "una cola de cerdo" [@20:27]. They are not alarmed; they have forgotten Úrsula's warnings. Then Amaranta Úrsula bleeds to death, smiling [@20:28]. Aureliano wanders the empty town looking for his friends and finds that even the pharmacy of Mercedes never existed. He drinks with a barman and shouts "¡Los amigos son unos hijos de puta!" [@20:30]. Nigromanta takes him in.</p>
+<p>At dawn he finds the child's shrivelled skin being dragged by all the ants in the world towards their holes [@20:32]. At that instant the epigraph of the parchments is revealed to him: "El primero de la estirpe está amarrado en un árbol y al último se lo están comiendo las hormigas." He nails the doors shut and reads the parchments as if they were in Spanish. They are the history of the family, written by Melquíades "con cien años de anticipación", in Sanskrit, with even lines in the Emperor Augustus's private cipher and odd lines in Spartan military codes, and with a century "concentrado… de modo que todos coexistieran en un instante" [@20:33]. He reads Arcadio's sung encyclicals, the Beauty's ascension, the twins, his own conception among "los alacranes y las mariposas amarillas", and learns that Amaranta Úrsula was his aunt, not his sister, and that Francis Drake had attacked Riohacha "solamente para que ellos pudieran buscarse por los laberintos más intrincados de la sangre". A biblical wind rises. He skips eleven pages to reach the present, reading it "como si se estuviera viendo en un espejo hablado", and understands before the last line that he will never leave the room. The city of mirrors (or mirages) will be wiped out by the wind, and erased from human memory, at the very instant he finishes deciphering, because everything written there was unrepeatable: the lines condemned to a hundred years of solitude "no tenían una segunda oportunidad sobre la tierra" [@20:33].</p>`,
+imageryEs:`
+<ul>
+<li><b>Pilar Ternera enterrada sentada en su mecedor</b> en el centro de la pista de baile, con aretes y sortijas de las mulatas echados en la fosa.</li>
+<li><b>Los tres cajones de manuscritos</b> del sabio catalán en el vagón de pasajeros: la literatura viajando en primera.</li>
+<li><b>Dos nostalgias enfrentadas como dos espejos</b>: la memoria que no tiene caminos de regreso.</li>
+<li><b>Los amantes embadurnados de melocotones en almíbar</b>, despertados por un torrente de hormigas carniceras: el paraíso y su devoración.</li>
+<li><b>La carta ajena</b> que queda «consumiéndose en el fuego interior de su mala noticia» en la repisa del anillo de Fernanda.</li>
+<li><b>El «ungüento azul»</b> del recién nacido y la cola de cerdo; Amaranta Úrsula borrándose «de la luz» en «una aurora de alabastro».</li>
+<li><b>El pellejo del niño arrastrado por las hormigas</b> por el sendero de piedras del jardín.</li>
+<li><b>El viento</b> «lleno de voces del pasado, de murmullos de geranios antiguos», y luego «el huracán bíblico».</li>
+<li><b>El espejo hablado</b>: leer y vivir al mismo tiempo; la ciudad de los espejos (o los espejismos).</li>
+</ul>`,
+context:`The chapter is full of real-world cameos: Rabelais [@20:7], Rocamadour from Cortázar's <i>Rayuela</i> and the rue Dauphine [@20:9], the vallenato composer Rafael Escalona [@20:29], and Mercedes (Barcha), García Márquez's wife [@20:7]. The "huracán bíblico" and the destruction of the city recall Sodom and Gomorrah and the Book of Revelation. The encrypted parchments recall Borges's infinite books and the tradition of prophetic texts (Nostradamus).`,
+characters:["pilar-ternera","sabio-catalan","aureliano-babilonia","amaranta-ursula","gaston","nigromanta","aureliano-ultimo","melquiades","ursula","jose-arcadio-buendia","fernanda","coronel-aureliano","aureliano-segundo"],
+motifs:["pergaminos","hormigas","espejos","castano","nombres","cuarto","casa"],
+terms:[
+ {es:"pastorales de desengaño", en:"pastoral letters of disillusion", note:"The sage's final letters."},
+ {es:"Makondos", en:"the Makonde people (Tanganyika)", note:"The plane's accidental destination; echo of 'Macondo'."},
+ {es:"partida de bautismo", en:"baptismal certificate", note:"Aureliano's search for his origin."},
+ {es:"comadrona", en:"midwife", note:""},
+ {es:"cola de cerdo", en:"pig's tail", note:"The fulfilment of the founding fear."},
+ {es:"epígrafe", en:"epigraph", note:"'El primero de la estirpe está amarrado en un árbol…'"},
+ {es:"clave privada del emperador Augusto", en:"Augustus's private cipher", note:"Suetonius describes Augustus's substitution cipher."},
+ {es:"claves militares lacedemonias", en:"Spartan military ciphers (the scytale)", note:""},
+ {es:"espejo hablado", en:"a speaking mirror", note:"Reading and living at once."},
+ {es:"estirpe", en:"lineage, line", note:"Latin <i>stirps</i> 'root, stock'."}
+],
+takeaways:[
+ "The world empties: friends, sage, lovers, Pilar, even the pharmacy disappear, and the town has a 'pasado cuyo aniquilamiento no se consumaba'.",
+ "The only child born of love carries the curse. Love comes too late to save the line.",
+ "The final revelation turns the novel into the parchments: we have been reading Melquíades's text.",
+ "Reading and living coincide; to finish the book is to end the world.",
+ "The last sentence denies any second chance. Is it a verdict on the family, on Latin American history, or on solitude itself?"
+],
+transitionIn:"The union at the end of ch. 19 begins the last cycle: love, pregnancy, birth, death, reading.",
+transitionOut:"There is no next chapter. Return to [@1:1] and read the first sentence again. Who is remembering, and from where?",
+endQuestions:[
+ "Who is the narrator of the novel, in the light of the ending?",
+ "Why does the novel end at the exact moment the reader (Aureliano) finishes reading? What does that do to you, the reader?",
+ "Is the pig's tail a punishment? A fate? A symbol? What evidence supports each reading?",
+ "Why is the last Aureliano named 'Babilonia' in the final sentence?",
+ "'Las estirpes condenadas a cien años de soledad no tenían una segunda oportunidad sobre la tierra': write your own interpretation. Is it despair, warning, or a call to history?",
+ "What does the priest's 'A mí me bastaría con estar seguro de que tú y yo existimos' contribute to the novel's philosophy?"
+],
+subs:[
+ {n:1, start:1, end:6, anchor:"Pilar Ternera murió en el mecedor", titleEs:"Pilar Ternera y el sabio catalán", titleEn:"Pilar Ternera and the Catalan sage",
+  summary:`<p>Pilar Ternera dies in her rocking chair and is buried in it under the dance floor; her women scatter [@20:1]. "Era el final" [@20:2]. The sage, who had arrived during the banana boom fleeing a war, sells his bookshop and leaves with three chests of violet-ink manuscripts. He had given Seneca and Ovid to schoolboys, knew that Saint Augustine wore a wool jerkin for fourteen years, and called losing his manuscripts "el destino natural de la literatura". "Collons… Me cago en el canon 27 del sínodo de Londres" [@20:3]. "¡Ahí les dejo esa mierda!" [@20:5]. His letters from the sea grow sadder, "aturdido por dos nostalgias enfrentadas como dos espejos", until he tells them that "el pasado era mentira… y que el amor más desatinado y tenaz era de todos modos una verdad efímera" [@20:6].</p>`,
+  imageryEs:`Los retratos del viejo cada vez más «pálido de sí mismo y taciturnado por la ausencia» en un barco que «empezaba a sonambular por océanos otoñales».`,
+  terms:[{es:"Collons", en:"(Catalan expletive)", note:""},{es:"nostalgización", en:"'nostalgisation'", note:"García Márquez's coinage."}],
+  quotes:[{es:"el pasado era mentira", en:"the past was a lie", p:"20:6"}],
+  questions:["What does the sage mean by 'the past was a lie'? Do you agree?","How is the sage's fate a mirror of Aureliano's?","Why is Pilar buried in the centre of a dance floor?"],
+  chars:["pilar-ternera","sabio-catalan","aureliano-babilonia"], transition:"The friends scatter."},
+ {n:2, start:7, end:10, anchor:"Álvaro fue el primero que atendió el consejo", titleEs:"Los más felices sobre la tierra", titleEn:"The happiest people on earth",
+  summary:`<p>Álvaro buys "un pasaje eterno en un tren que nunca acababa de viajar"; Alfonso and Germán leave for a weekend and never return; Gabriel wins a trip to Paris and has to wave the train down [@20:7]. The past "seguía aniquilándose indefinidamente… sin acabar de acabarse jamás". In a Macondo "olvidado hasta por los pájaros", Aureliano and Amaranta Úrsula "eran los únicos seres felices, y los más felices sobre la tierra". Gastón leaves [@20:8]. They forget time, go naked like Remedios the Beauty, wreck the house "más estragos que las hormigas", and discover "que los tedios del amor tenían posibilidades inexploradas". She: "Lo que más me duele… es tanto tiempo que perdimos." Gastón's plane went to "los Makondos" [@20:9]. They confess; he replies kindly and later asks only for his velocipede [@20:10]. Poor and faithful, they are expecting a child.</p>`,
+  imageryEs:`«La soledad y el amor y… la soledad del amor»; los amantes despertados por «un torrente de hormigas carniceras que se disponían a devorarlos vivos».`,
+  terms:[{es:"salacidad", en:"lustfulness", note:""},{es:"Leopoldville", en:"Léopoldville (Kinshasa)", note:"Where Gastón gets the plane."}],
+  quotes:[{es:"los más felices sobre la tierra", en:"the happiest on earth", p:"20:7"},{es:"tanto tiempo que perdimos", en:"so much time we lost", p:"20:8"}],
+  questions:["How can the happiest couple on earth also be the family's end?","What does the misdirected plane to 'los Makondos' suggest?","Why does Amaranta Úrsula feel humiliated by Gastón's generosity?"],
+  chars:["aureliano-babilonia","amaranta-ursula","gaston","sabio-catalan"], transition:"Pregnancy, poverty, and the question of origin."},
+ {n:3, start:11, end:23, anchor:"En el sopor del embarazo", titleEs:"«¿Existimos?»", titleEn:"'Do we exist?'",
+  summary:`<p>Amaranta Úrsula fails to sell fishbone necklaces; Aureliano realises his knowledge is as useless as her jewels [@20:11]. They sit in the corridor looking at each other and recognise they had been happy together since childhood in the flood. Believing Fernanda's basket story, they fear Aureliano may be Petra Cotes's son, and therefore her brother [@20:11]. He searches the parish books [@20:12]. The priest: the name must come from a street. "Entonces usted tampoco cree… Que el coronel Aureliano Buendía hizo treinta y dos guerras civiles… Que el ejército… ametralló a tres mil trabajadores" [@20:16][@20:18]. "Ay, hijo… A mí me bastaría con estar seguro de que tú y yo existimos en este momento" [@20:20]. They accept the basket story because it saves them from terror [@20:21]. A cold letter from Barcelona arrives: "Esta no… No quiero saber lo que dice" [@20:22]. At night the dead walk; "las obsesiones dominantes prevalecen contra la muerte" [@20:23].</p>`,
+  imageryEs:`«Las últimas trincheras de la guerra inmemorial entre el hombre y las hormigas»; la carta que se consume «en el fuego interior de su mala noticia».`,
+  terms:[{es:"archivos parroquiales", en:"parish records", note:""},{es:"inverosímil", en:"implausible", note:""}],
+  quotes:[{es:"tú y yo existimos en este momento", en:"you and I exist at this moment", p:"20:20"},{es:"las obsesiones dominantes prevalecen contra la muerte", en:"dominant obsessions prevail against death", p:"20:23"}],
+  questions:["Why is the priest's scepticism so devastating for Aureliano?","Why do they choose a comforting lie over the search for truth?","What survives death, according to this passage?"],
+  chars:["amaranta-ursula","aureliano-babilonia","fernanda","petra-cotes","sabio-catalan","ursula","jose-arcadio-buendia","coronel-aureliano","aureliano-segundo"], transition:"A Sunday at six in the evening."},
+ {n:4, start:24, end:28, anchor:"Un domingo, a las seis de la tarde", titleEs:"La cola de cerdo", titleEn:"The pig's tail",
+  summary:`<p>The midwife from the imaginary brothel delivers the child on the dining table [@20:24]. He combines the two lines of the family and is "el único en un siglo que había sido engendrado con amor". "Es todo un antropófago… Se llamará Rodrigo." "No… Se llamará Aureliano y ganará treinta y dos guerras" [@20:25][@20:26]. Cleaning off the "ungüento azul", they turn him over: "Era una cola de cerdo" [@20:27]. They are not alarmed; the midwife says it can be cut off when he loses his milk teeth. Then Amaranta Úrsula bleeds, "como querer cegar un surtidor con las manos". She keeps laughing, then fades "como si la estuvieran borrando de la luz", and dies with a smile [@20:28].</p>`,
+  imageryEs:`«Su sangre apasionada… insensible a todo artificio distinto del amor»; el perfil que se afila y los verdugones que se desvanecen «en una aurora de alabastro».`,
+  terms:[{es:"ungüento azul", en:"blue ointment (vernix)", note:""},{es:"desangrarse", en:"to bleed to death", note:""}],
+  quotes:[{es:"engendrado con amor", en:"conceived with love", p:"20:24"},{es:"Era una cola de cerdo.", en:"It was a pig's tail.", p:"20:27"}],
+  questions:["Why is the child of love the one with the tail?","What does the father's naming choice ('ganará treinta y dos guerras') reveal?","Why do they not know the family's warnings?"],
+  chars:["aureliano-ultimo","amaranta-ursula","aureliano-babilonia"], transition:"Aureliano runs into the night."},
+ {n:5, start:29, end:31, anchor:"Aureliano no comprendió hasta entonces", titleEs:"«Los amigos son unos hijos de puta»", titleEn:"'Friends are sons of bitches'",
+  summary:`<p>He leaves the baby in the basket and wanders "buscando un desfiladero de regreso al pasado" [@20:29]. The pharmacy is a carpenter's shop; no Mercedes ever lived there. He weeps at the sage's door and beats the walls of El Niño de Oro calling for Pilar. In the last open bar accordions play Rafael Escalona's songs. A barman whose arm withered for raising it against his mother drinks with Aureliano, whose heart is "seco y como achicharrado por haberlo levantado contra su hermana". In the square he shouts "¡Los amigos son unos hijos de puta!" [@20:30]. Nigromanta cleans him up and crosses out his debts [@20:31].</p>`,
+  imageryEs:`La «última madrugada de Macondo»; los «luminosos discos anaranjados» en el cielo; la pena como brazo seco.`,
+  terms:[{es:"Rafael Escalona", en:"(real vallenato composer)", note:""},{es:"cantinero", en:"barman", note:""}],
+  quotes:[{es:"¡Los amigos son unos hijos de puta!", en:"Friends are sons of bitches!", p:"20:30"}],
+  questions:["Why do places vanish as though they had never existed?","Why does Aureliano think of his friends rather than of Amaranta Úrsula at first?","What does Nigromanta's erasing of the debt mean?"],
+  chars:["aureliano-babilonia","nigromanta","pilar-ternera","sabio-catalan"], transition:"He remembers the child."},
+ {n:6, start:32, end:33, anchor:"No lo encontró en la canastilla", titleEs:"El último pergamino", titleEn:"The last parchment",
+  summary:`<p>The basket is empty. Sitting in the rocking chair where Rebeca taught embroidery and Amaranta played checkers with Gerineldo, he feels "el peso abrumador de tanto pasado" [@20:32]. Then he sees the child's dried skin dragged by the ants, and the key is revealed: "El primero de la estirpe está amarrado en un árbol y al último se lo están comiendo las hormigas". He nails the doors shut and reads the parchments aloud, standing, as if they were Spanish [@20:33]. Melquíades concentrated a century "de modo que todos coexistieran en un instante". He reads Arcadio's encyclicals, the Beauty's ascension, the twins. A wind begins, "lleno de voces del pasado". He finds his grandfather crossing the páramo and his own conception among "los alacranes y las mariposas amarillas". Amaranta Úrsula was his aunt, and Drake raided Riohacha so that they could find each other "por los laberintos más intrincados de la sangre". The hurricane tears off doors and roofs. He skips eleven pages to the present, reading himself "como si se estuviera viendo en un espejo hablado", and understands that the city would be erased when he finished, and that "las estirpes condenadas a cien años de soledad no tenían una segunda oportunidad sobre la tierra".</p>`,
+  imageryEs:`«La impavidez de la telaraña en los rosales muertos, la perseverancia de la cizaña, la paciencia del aire»; el viento «de murmullos de geranios antiguos»; Macondo como «un pavoroso remolino de polvo y escombros».`,
+  terms:[{es:"estirpe", en:"lineage", note:""},{es:"huracán bíblico", en:"biblical hurricane", note:""},{es:"espejismos", en:"mirages", note:"'la ciudad de los espejos (o los espejismos)'."}],
+  quotes:[{es:"El primero de la estirpe está amarrado en un árbol y al último se lo están comiendo las hormigas.", en:"The first of the line is tied to a tree and the last is being eaten by the ants.", p:"20:32"},{es:"no tenían una segunda oportunidad sobre la tierra", en:"did not have a second chance on earth", p:"20:33"}],
+  questions:["Why does Aureliano leave the dead behind to read? Is reading here an act of love or of abandonment?","How does 'todos coexistieran en un instante' explain the novel's prolepses (e.g. 'Muchos años después')?","What would it mean for the wheel to have 'a second chance'?","Now return to the first sentence of the novel. What has changed?"],
+  chars:["aureliano-babilonia","aureliano-ultimo","melquiades","arcadio","remedios-la-bella","jose-arcadio-segundo","aureliano-segundo","meme","mauricio-babilonia","amaranta-ursula"], transition:"The end. Go back to Chapter 1, paragraph 1."}
+]
+});

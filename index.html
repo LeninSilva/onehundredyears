@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cien años · Lectura profunda</title>
+<meta name="description" content="A deep, bilingual close-reading companion to Gabriel García Márquez's Cien años de soledad: chapter-by-chapter commentary, questions, imagery in Spanish, an interactive family tree, highlights and notes.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23F2C94C'/%3E%3Cpath d='M12 7v10M12 9C10 4 5 5 6 9c1 2 4 2 6 1M12 9c2-5 7-4 6 0-1 2-4 2-6 1' fill='none' stroke='%232B2520' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#/" aria-label="Cien años, Lectura profunda: home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" /><path d="M12 7v10M12 9C10 4 5 5 6 9c1 2 4 2 6 1M12 9c2-5 7-4 6 0-1 2-4 2-6 1M12 12c-2 0-5 1-4 3 1 1 3 0 4-3M12 12c2 0 5 1 4 3-1 1-3 0-4-3" /></svg>
+      <span class="brand-text"><span class="brand-title">Cien años</span><span class="brand-sub">Lectura profunda</span></span>
+    </a>
+    <button type="button" class="menu-btn" id="menu-btn" data-action="toggle-menu" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="#/chapters" data-nav="chapters">Chapters</a>
+      <a href="#/characters" data-nav="characters">Characters</a>
+      <a href="#/tree" data-nav="tree">Family tree</a>
+      <a href="#/themes" data-nav="themes">Themes</a>
+      <a href="#/philosophy" data-nav="philosophy">Philosophy</a>
+      <a href="#/notebook" data-nav="notebook">Notebook</a>
+      <a href="#/library" data-nav="library" class="book-link"><span id="book-status">Load your book</span></a>
+      <a href="#/search" class="icon-link" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+      <button type="button" class="icon-link" data-action="toggle-settings" aria-expanded="false" aria-controls="settings" aria-label="Reading settings"><svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    </nav>
+  </div>
+  <div class="settings" id="settings" hidden>
+    <div class="settings-inner">
+      <div role="group" aria-label="Theme"><span class="label">Theme</span>
+        <button type="button" class="btn btn-sm" data-action="theme" data-value="auto" aria-pressed="false">Auto</button>
+        <button type="button" class="btn btn-sm" data-action="theme" data-value="light" aria-pressed="false">Light</button>
+        <button type="button" class="btn btn-sm" data-action="theme" data-value="dark" aria-pressed="false">Dark</button>
+      </div>
+      <div role="group" aria-label="Text size"><span class="label">Text size</span>
+        <button type="button" class="btn btn-sm" data-action="size" data-value="s" aria-pressed="false">A−</button>
+        <button type="button" class="btn btn-sm" data-action="size" data-value="m" aria-pressed="false">A</button>
+        <button type="button" class="btn btn-sm" data-action="size" data-value="l" aria-pressed="false">A+</button>
+        <button type="button" class="btn btn-sm" data-action="size" data-value="xl" aria-pressed="false">A++</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <nav aria-label="More">
+    <a href="#/structure">Plot structure</a>
+    <a href="#/glossary">Glossary</a>
+    <a href="#/context">Context</a>
+    <a href="#/guide">How to use</a>
+    <a href="#/about">About</a>
+  </nav>
+  <p class="small">Made by readers and lovers of books. Commentary © its authors; quotations from <i>Cien años de soledad</i> by Gabriel García Márquez are brief and for study. The novel's text is never stored on this site.</p>
+</footer>
+
+<div id="sel-toolbar" class="sel-toolbar" role="toolbar" aria-label="Highlight and note tools" hidden></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/data/book.js"></script>
+<script src="assets/js/data/characters.js"></script>
+<script src="assets/js/data/ch01.js"></script>
+<script src="assets/js/data/ch02.js"></script>
+<script src="assets/js/data/ch03.js"></script>
+<script src="assets/js/data/ch04.js"></script>
+<script src="assets/js/data/ch05.js"></script>
+<script src="assets/js/data/ch06.js"></script>
+<script src="assets/js/data/ch07.js"></script>
+<script src="assets/js/data/ch08.js"></script>
+<script src="assets/js/data/ch09.js"></script>
+<script src="assets/js/data/ch10.js"></script>
+<script src="assets/js/data/ch11.js"></script>
+<script src="assets/js/data/ch12.js"></script>
+<script src="assets/js/data/ch13.js"></script>
+<script src="assets/js/data/ch14.js"></script>
+<script src="assets/js/data/ch15.js"></script>
+<script src="assets/js/data/ch16.js"></script>
+<script src="assets/js/data/ch17.js"></script>
+<script src="assets/js/data/ch18.js"></script>
+<script src="assets/js/data/ch19.js"></script>
+<script src="assets/js/data/ch20.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
