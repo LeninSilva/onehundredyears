@@ -356,3 +356,10 @@ mark.hl { color: inherit; border-radius: 3px; padding: 0 1px; cursor: pointer; }
 }
 
 .card > h2:first-child, .card > h3:first-child { margin-top: .2em; }
+
+/* ---- In-page confirmation ---- */
+.modal-backdrop { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 16px; background: color-mix(in srgb, var(--ink) 45%, transparent); }
+.modal { max-width: 440px; width: 100%; margin: 0; }
+.modal p { margin-top: 0; }
+.danger-bg { background: var(--danger); border-color: var(--danger); color: var(--card); }
+#export-text { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .8rem; }

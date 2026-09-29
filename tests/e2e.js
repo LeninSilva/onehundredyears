@@ -84,11 +84,13 @@ const BASE = process.env.BASE || 'http://localhost:8765/index.html';
   await page.click('#reflect button[data-action="answer-q"]'); await page.waitForSelector('#note-body'); await page.fill('#note-body', 'An answer about ice and time.'); await page.click('#note-form button[type=submit]'); await page.waitForTimeout(200);
   check((await page.$$('.note-card')).length >= 3, 'multiple notes on 1.6');
   // edit & delete
-  page.on('dialog', d => d.accept());
+  page.on('dialog', d => { errors.push('FAIL native dialog used: ' + d.message()); d.dismiss(); });
   await page.click('.note-card button[data-action="note-edit"]'); await page.waitForSelector('#note-body'); await page.fill('#note-body', 'Edited note body'); await page.click('#note-form button[type=submit]'); await page.waitForTimeout(200);
   check((await page.textContent('#notes')).includes('Edited note body'), 'edit note');
   const before = (await page.$$('.note-card')).length;
-  await page.click('.note-card button[data-action="note-delete"]'); await page.waitForTimeout(200);
+  await page.click('.note-card button[data-action="note-delete"]'); await page.click('.modal [data-m="cancel"]'); await page.waitForTimeout(100);
+  check((await page.$$('.note-card')).length === before, 'cancel keeps note');
+  await page.click('.note-card button[data-action="note-delete"]'); await page.click('.modal [data-m="ok"]'); await page.waitForTimeout(200);
   check((await page.$$('.note-card')).length === before - 1, 'delete note');
   // mark read
   await page.click('button[data-action="mark-read"]'); check((await page.getAttribute('button[data-action="mark-read"]', 'aria-pressed')) === 'true', 'mark read');
@@ -103,16 +105,23 @@ const BASE = process.env.BASE || 'http://localhost:8765/index.html';
   await page.click('#note-form button[type=submit]'); await page.waitForTimeout(200);
   // notebook
   await page.goto(BASE + '#/notebook'); await page.waitForSelector('.note-card');
-  const [dl1] = await Promise.all([page.waitForEvent('download'), page.click('button[data-action="export-md"]')]);
+  await page.click('button[data-action="export-md"]'); await page.waitForSelector('#export-text');
+  check((await page.inputValue('#export-text')).includes('García Márquez, 2017, ch.'), 'md export panel');
+  const [dl1] = await Promise.all([page.waitForEvent('download'), page.click('button[data-action="export-download"]')]);
   const md = await (await dl1.createReadStream()).toArray(); const mdText = Buffer.concat(md).toString(); check(mdText.includes('García Márquez, 2017, ch.'), 'md export content');
-  const [dl2] = await Promise.all([page.waitForEvent('download'), page.click('button[data-action="export-json"]')]);
+  await page.click('button[data-action="export-json"]'); await page.waitForTimeout(100);
+  const jsonText = await page.inputValue('#export-text');
+  const [dl2] = await Promise.all([page.waitForEvent('download'), page.click('button[data-action="export-download"]')]);
   const jsonPath = require('os').tmpdir() + '/cien-export.json'; await dl2.saveAs(jsonPath);
   await page.selectOption('#nb-ch', '1'); await page.waitForTimeout(300); check(page.url().includes('ch=1'), 'notebook filter');
   // clear and import
-  await page.click('button[data-action="clear-notes"]'); await page.waitForTimeout(200);
+  await page.click('button[data-action="clear-notes"]'); await page.click('.modal [data-m="ok"]'); await page.waitForTimeout(200);
   check((await page.$$('.note-card')).length === 0, 'cleared');
   await page.setInputFiles('#import-input', jsonPath); await page.waitForTimeout(400);
   check((await page.$$('.note-card')).length > 0, 'imported');
+  await page.click('button[data-action="clear-notes"]'); await page.click('.modal [data-m="ok"]'); await page.waitForTimeout(200);
+  await page.click('details summary'); await page.fill('#import-text', jsonText); await page.click('button[data-action="import-paste"]'); await page.waitForTimeout(300);
+  check((await page.$$('.note-card')).length > 0, 'imported by paste');
   // tree interactions
   await page.goto(BASE + '#/tree'); await page.waitForSelector('#tree-svg');
   await page.click('#tree-svg g[data-id="aureliano-segundo"]'); await page.waitForTimeout(150);
@@ -154,7 +163,9 @@ const BASE = process.env.BASE || 'http://localhost:8765/index.html';
   await mp.click('#menu-btn'); check(await mp.isVisible('#site-nav a[data-nav="tree"]'), 'mobile menu opens');
   await mp.click('#site-nav a[data-nav="tree"]'); await mp.waitForTimeout(200); check(!(await mp.isVisible('#site-nav a[data-nav="themes"]')), 'menu closes after nav');
   // remove book
-  await page.goto(BASE + '#/library'); await page.click('button[data-action="book-remove"]'); await page.waitForTimeout(300);
+  await page.goto(BASE + '#/library'); await page.click('button[data-action="book-remove"]'); await page.keyboard.press('Escape'); await page.waitForTimeout(100);
+  check(!!(await page.evaluate(() => window.__cien.book)), 'escape cancels removal');
+  await page.click('button[data-action="book-remove"]'); await page.click('.modal [data-m="ok"]'); await page.waitForTimeout(300);
   check(!(await page.evaluate(() => window.__cien.book)), 'book removed');
   await page.goto(BASE + '#/ch/1/1'); check(await page.$('.empty-reader'), 'empty reader after removal');
   console.log(errors.length ? errors.join('\n') : 'ALL OK');

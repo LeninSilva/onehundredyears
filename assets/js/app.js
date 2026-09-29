@@ -1128,10 +1128,15 @@
       <div class="row wrap notebook-tools">
         <button type="button" class="btn" data-action="export-md">Export Markdown</button>
         <button type="button" class="btn" data-action="export-json">Export backup (JSON)</button>
-        <label class="btn" for="import-input">Import backup…</label><input id="import-input" class="visually-hidden" type="file" accept=".json,application/json">
-        <button type="button" class="btn btn-quiet" data-action="print">Print</button>
+        <label class="btn" for="import-input">Import backup file…</label><input id="import-input" class="visually-hidden" type="file" accept=".json,application/json">
         <button type="button" class="btn btn-quiet danger" data-action="clear-notes">Delete everything…</button>
       </div>
+      <div id="export-panel"></div>
+      <details class="card"><summary>Import by pasting a backup</summary>
+        <label class="label" for="import-text">Paste the text of a JSON backup</label>
+        <textarea id="import-text" rows="4" placeholder='{"app":"cien-anos-lectura", …}'></textarea>
+        <p><button type="button" class="btn btn-sm" data-action="import-paste">Import pasted backup</button></p>
+      </details>
       <form class="row wrap filters" id="nb-filter" role="search">
         <label class="label" for="nb-ch">Chapter</label>
         <select id="nb-ch" class="input"><option value="">All chapters</option>${CH.map(c => `<option value="${c.n}" ${fch === String(c.n) ? 'selected' : ''}>${c.n}. ${esc(c.titleEs)}</option>`).join('')}</select>
@@ -1331,19 +1336,61 @@
     const imp = $('#import-input');
     if (imp) imp.addEventListener('change', async () => {
       const f = imp.files[0]; if (!f) return;
-      try {
-        const data = JSON.parse(await f.text());
-        const ns = Array.isArray(data.notes) ? data.notes : [];
-        const hs = Array.isArray(data.highlights) ? data.highlights : [];
-        const nIds = new Set(NOTES.map(x => x.id)); const hIds = new Set(HLS.map(x => x.id));
-        let added = 0;
-        ns.forEach(x => { if (x && x.id && typeof x.ch === 'number' && !nIds.has(x.id)) { NOTES.push(x); added++; } });
-        hs.forEach(x => { if (x && x.id && typeof x.ch === 'number' && !hIds.has(x.id)) { HLS.push(x); added++; } });
-        if (data.read && typeof data.read === 'object') Object.assign(READ, data.read);
-        saveNotes(); saveHls(); saveRead();
-        toast(`Imported ${added} items.`); rerender();
-      } catch (e) { toast('That file is not a valid notebook backup.'); }
+      importBackup(await f.text());
     });
+  }
+  function importBackup(text) {
+    try {
+      const data = JSON.parse(text);
+      const ns = Array.isArray(data.notes) ? data.notes : [];
+      const hs = Array.isArray(data.highlights) ? data.highlights : [];
+      const nIds = new Set(NOTES.map(x => x.id)); const hIds = new Set(HLS.map(x => x.id));
+      let added = 0;
+      ns.forEach(x => { if (x && x.id && typeof x.ch === 'number' && !nIds.has(x.id)) { NOTES.push(x); added++; } });
+      hs.forEach(x => { if (x && x.id && typeof x.ch === 'number' && !hIds.has(x.id)) { HLS.push(x); added++; } });
+      if (data.read && typeof data.read === 'object') Object.assign(READ, data.read);
+      saveNotes(); saveHls(); saveRead();
+      toast(`Imported ${added} items.`); rerender();
+    } catch (e) { toast('That is not a valid notebook backup. Check that you copied the whole text.'); }
+  }
+  // In-page confirmation (browser confirm() dialogs are blocked in some embedded viewers).
+  function askConfirm(message, okLabel) {
+    return new Promise(resolve => {
+      const prev = document.activeElement;
+      const wrap = document.createElement('div');
+      wrap.className = 'modal-backdrop';
+      wrap.innerHTML = `<div class="modal card" role="alertdialog" aria-modal="true" aria-labelledby="modal-msg">
+        <p id="modal-msg">${esc(message)}</p>
+        <div class="row wrap"><button type="button" class="btn btn-primary danger-bg" data-m="ok">${esc(okLabel || 'Confirm')}</button>
+        <button type="button" class="btn" data-m="cancel">Cancel</button></div></div>`;
+      const done = v => { wrap.remove(); document.removeEventListener('keydown', onKey, true); if (prev && prev.focus) prev.focus(); resolve(v); };
+      const onKey = e => {
+        if (e.key === 'Escape') { e.stopPropagation(); done(false); }
+        if (e.key === 'Tab') { const b = $$('button', wrap); const i = b.indexOf(document.activeElement); e.preventDefault(); b[(i + (e.shiftKey ? b.length - 1 : 1)) % b.length].focus(); }
+      };
+      wrap.addEventListener('click', e => {
+        e.stopPropagation();
+        const m = e.target.closest('[data-m]');
+        if (m) done(m.dataset.m === 'ok'); else if (e.target === wrap) done(false);
+      });
+      document.addEventListener('keydown', onKey, true);
+      document.body.appendChild(wrap);
+      $('[data-m="cancel"]', wrap).focus();
+    });
+  }
+  // Export: show the text with Copy and Download (downloads are blocked in some embedded viewers).
+  let EXPORT = null;
+  function showExport(name, text, type, label) {
+    EXPORT = { name, text, type };
+    const p = $('#export-panel'); if (!p) return;
+    p.innerHTML = `<section class="card"><h2>${esc(label)}</h2>
+      <p class="small muted">Copy this text and keep it somewhere safe, or download it as a file. To restore a backup, use Import.</p>
+      <label class="visually-hidden" for="export-text">${esc(label)} text</label>
+      <textarea id="export-text" rows="10" readonly>${esc(text)}</textarea>
+      <p class="row wrap"><button type="button" class="btn btn-primary" data-action="export-copy">Copy to clipboard</button>
+      <button type="button" class="btn" data-action="export-download">Download ${esc(name)}</button>
+      <button type="button" class="btn btn-quiet" data-action="export-close">Close</button></p></section>`;
+    p.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function afterSearch() {
     const f = $('#search-form'); if (!f) return;
@@ -1493,7 +1540,7 @@
         break;
       }
       case 'note-delete': {
-        if (!confirm('Delete this note? This cannot be undone.')) break;
+        if (!(await askConfirm('Delete this note? This cannot be undone.', 'Delete note'))) break;
         NOTES = NOTES.filter(y => y.id !== t.dataset.id); saveNotes(); toast('Note deleted.'); rerender(true); break;
       }
       case 'quote-next': if (EDITOR && EDITOR.candidates.length) { EDITOR.idx = (EDITOR.idx + 1) % EDITOR.candidates.length; renderSuggestion(); } break;
@@ -1521,16 +1568,22 @@
       }
       case 'hl-remove': HLS = HLS.filter(h => h.id !== t.dataset.hid); saveHls(); toast('Highlight removed.'); rerender(true); break;
       case 'tb-close': { const s = window.getSelection(); if (s) s.removeAllRanges(); hideToolbar(); break; }
-      case 'export-md': download('cien-anos-notebook.md', notebookMarkdown(), 'text/markdown'); break;
-      case 'export-json': download('cien-anos-notebook.json', JSON.stringify({ app: 'cien-anos-lectura', version: 1, exported: new Date().toISOString(), notes: NOTES, highlights: HLS, read: READ }, null, 2), 'application/json'); break;
+      case 'export-md': showExport('cien-anos-notebook.md', notebookMarkdown(), 'text/markdown', 'Markdown'); break;
+      case 'export-json': showExport('cien-anos-notebook.json', JSON.stringify({ app: 'cien-anos-lectura', version: 1, exported: new Date().toISOString(), notes: NOTES, highlights: HLS, read: READ }, null, 2), 'application/json', 'Backup (JSON)'); break;
+      case 'export-copy': { const ta = $('#export-text'); if (ta) { try { await navigator.clipboard.writeText(ta.value); toast('Copied to clipboard.'); } catch (e3) { ta.focus(); ta.select(); toast('Press Ctrl+C (or ⌘C) to copy the selected text.'); } } break; }
+      case 'export-download': if (EXPORT) download(EXPORT.name, EXPORT.text, EXPORT.type); break;
+      case 'export-close': { const p = $('#export-panel'); if (p) p.innerHTML = ''; EXPORT = null; break; }
+      case 'import-paste': {
+        const ta = $('#import-text'); if (!ta || !ta.value.trim()) { toast('Paste a backup first.'); break; }
+        importBackup(ta.value); break;
+      }
       case 'clear-notes':
-        if (confirm('Delete ALL notes, highlights and reading progress on this device? Export a backup first if you want to keep them.')) {
+        if (await askConfirm('Delete ALL notes, highlights and reading progress on this device? Export a backup first if you want to keep them.', 'Delete everything')) {
           NOTES = []; HLS = []; READ = {}; saveNotes(); saveHls(); saveRead(); toast('Notebook cleared.'); rerender();
         }
         break;
-      case 'print': window.print(); break;
       case 'book-remove':
-        if (confirm('Remove your book from this device? Your notes and highlights stay.')) {
+        if (await askConfirm('Remove your book from this device? Your notes and highlights stay.', 'Remove book')) {
           try { await idb.del('book'); } catch (e2) { /* ignore */ }
           setBook(null); toast('Book removed from this device.'); rerender();
         }
